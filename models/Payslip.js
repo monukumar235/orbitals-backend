@@ -11,6 +11,10 @@ export const Payslip = sequelize.define("Payslip",{
     employee_id :{
         type : DataTypes.UUID,
         allowNull : false,
+        references : {
+            model : "employees",
+            key : "id",
+        },
     },
     month:{
         type : DataTypes.INTEGER,

@@ -12,6 +12,10 @@ export const EmployeeDocument = sequelize.define("EmployeeDocument",{
     employee_id:{
         type : DataTypes.UUID,
         allowNull : false,
+        references : {
+            model : "employees",
+            key : "id",
+        },
     },
     document_type:{
         type : DataTypes.STRING(50),
@@ -33,6 +37,14 @@ export const EmployeeDocument = sequelize.define("EmployeeDocument",{
         type : DataTypes.DATE,
         allowNull : false,
         defaultValue : DataTypes.NOW,
+    },
+    verified_by:{
+        type : DataTypes.UUID,
+        allowNull : true,
+        references : {
+            model : "users",
+            key : "id",
+        },
     },
     verified_at:{
         type : DataTypes.DATE,

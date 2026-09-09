@@ -49,6 +49,18 @@ Department.hasMany(Employee ,{
     as : "employees"
 });
 
+
+Employee.belongsTo(Employee, {
+  foreignKey: "reporting_manager_id",
+  as: "manager",
+});
+
+Employee.hasMany(Employee, {
+  foreignKey: "reporting_manager_id",
+  as: "teamMembers",
+});
+
+
 Role.belongsToMany(Permission, {
   through: RolePermission,
   foreignKey: "role_id",

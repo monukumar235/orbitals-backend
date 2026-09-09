@@ -10,6 +10,10 @@ export const Attendance = sequelize.define("Attendance", {
   employee_id: {
     type: DataTypes.UUID,
     allowNull: false,
+    references :{
+      model : "employees",
+      key : "id",
+    },
   },
   attendance_date: {
     type: DataTypes.DATEONLY,

@@ -12,6 +12,10 @@ export const DailyReport = sequelize.define(
     employee_id: {
       type: DataTypes.UUID,
       allowNull: false,
+      references :{
+        model : "employees",
+        key : "id",
+      },
     },
     report_date: {
       type: DataTypes.DATEONLY,
@@ -42,9 +46,14 @@ export const DailyReport = sequelize.define(
       allowNull: false,
       defaultValue: "SUBMITTED",
     },
+    
     reviewed_by: {
       type: DataTypes.UUID,
       allowNull: true,
+      references : {
+        model : "users",
+        key : "id",
+      },
     },
     reviewed_at: {
       type: DataTypes.DATEONLY,

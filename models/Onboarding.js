@@ -12,6 +12,10 @@ export const  Onboarding = sequelize.define("Onboarding",{
         type : DataTypes.UUID,
         allowNull :false,
         unique : true,
+        references : {
+            model : "employees",
+            key : "id",
+        },
     },
     status:{
         type : DataTypes.STRING(30),
@@ -33,6 +37,10 @@ export const  Onboarding = sequelize.define("Onboarding",{
     viewed_by:{
         type : DataTypes.UUID,
         allowNull : true,
+        references : {
+            model : "users",
+            key : "id",
+        },
     },
     rejection_reason:{
         type : DataTypes.TEXT,

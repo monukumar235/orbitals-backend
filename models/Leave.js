@@ -11,10 +11,18 @@ export const Leave = sequelize.define("Leave",{
     employee_id :{
         type : DataTypes.UUID,
         allowNull : false,
+        references : {
+            model : "employees",
+            key : "id",
+        },
     },
     leave_type_id:{
         type : DataTypes.UUID,
         allowNull : false,
+        references : {
+            model : "leave_type",
+            key : "id",
+        },
     },
     start_date:{
         type : DataTypes.DATEONLY,
@@ -40,6 +48,10 @@ export const Leave = sequelize.define("Leave",{
     reviewed_by:{
         type : DataTypes.UUID,
         allowNull : true,
+        references : {
+            model : "users",
+            key : "id",
+        },
     },
     reviewed_at:{
         type : DataTypes.DATE,

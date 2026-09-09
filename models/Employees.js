@@ -18,11 +18,27 @@ export const Employee = sequelize.define(
       type: DataTypes.UUID,
       allowNull: false,
       unique: true,
+      references: {
+        model: "users",
+        key: "id",
+      },
     },
 
     department_id: {
       type: DataTypes.UUID,
       allowNull: true,
+      references: {
+        model: "department",
+        key: "id",
+      },
+    },
+    reporting_manager_id: {
+      type: DataTypes.UUID,
+      allowNull: true,
+      references: {
+        model: "employees",
+        key: "id",
+      },
     },
     first_name: {
       type: DataTypes.STRING(100),

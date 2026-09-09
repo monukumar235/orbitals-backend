@@ -12,10 +12,18 @@ export const LeaveBalance = sequelize.define("LeaveBalance",{
     employee_id:{
         type : DataTypes.UUID,
         allowNull : false,
+        references : {
+            model : "employees",
+            key : "id",
+        },
     },
     leave_type_id : {
         type : DataTypes.UUID,
         allowNull : false,
+        references : {
+            model : "leave_type",
+            key : "id",
+        },
     },
     year :{
         type : DataTypes.INTEGER,
