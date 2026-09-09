@@ -67,7 +67,7 @@ export const login = async (req, res) => {
       include: [
         {
           model: Role,
-          as : "role",
+          as: "role",
           attributes: ["id", "name"],
         },
       ],
@@ -109,25 +109,24 @@ export const login = async (req, res) => {
     );
 
     await user.update({
-        last_login_at :new Date(),
+      last_login_at: new Date(),
     });
 
     return res.status(200).json({
-        success : true,
-        message : "Login successful",
-        token,
-        user:{
-            id : user.id,
-            role : user.role.name,
-            email : user.email
-        }
+      success: true,
+      message: "Login successful",
+      token,
+      user: {
+        id: user.id,
+        role: user.role.name,
+        email: user.email,
+      },
     });
-
   } catch (error) {
     return res.status(500).json({
-        success : false,
-        message : "Internal server error",
-        error : error.message
+      success: false,
+      message: "Internal server error",
+      error: error.message,
     });
   }
 };
