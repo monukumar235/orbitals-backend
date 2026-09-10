@@ -28,7 +28,7 @@ export const Attendance = sequelize.define("Attendance", {
     allowNull: true,
   },
   working_hours: {
-    type: DataTypes.DATE,
+    type: DataTypes.DECIMAL(5,2),
     allowNull: true,
   },
   status: {
