@@ -3,6 +3,8 @@ import app from "./app.js";
 import { sequelize,connectDb } from "./config/database.js";
 import  "./models/index.js";
 import authRoute from "./routes/AuthRoutes.js";
+import employeeRoute from "./routes/EmployeeRoutes.js"
+import attendanceRoute from "./routes/AttendanceRoutes.js";
 
 
 dotenv.config();
@@ -10,6 +12,8 @@ dotenv.config();
 const port = process.env.PORT || 5000;
 
 app.use("/api/auth",authRoute);
+app.use("/api/employees",employeeRoute);
+app.use("/api/attendance",attendanceRoute);
 
 
 const startServer = async () => {
